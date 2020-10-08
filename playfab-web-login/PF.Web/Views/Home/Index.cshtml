@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<br />
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div>@User.Identity.Name</div>
+}
+else
+{
+    <div>Not Auth</div>
+}
+
+<div class="text-center">
+    <form id="myForm" method="post">
+        <input type="email" name="email" />
+        <input type="password" name="password" />
+        <input type="submit" />
+    </form>
+</div>
+
+
+@section Scripts {
+    <script>
+        // This script should be in its own file and inserted to the script section
+        $('#myForm').submit(function (e) {
+            e.preventDefault();
+            console.log($('#myForm').serialize());
+            $.post('/api/Login', $('#myForm').serialize(), function () { location.reload() });
+        });
+    </script>
+}
