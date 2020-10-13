@@ -8,5 +8,7 @@ This repository contains all the spikes that I needed to share with someone, or 
 
 ## License
 
+This repository is covered under the [MIT License][license].
 
 [playfab-web-login]: ./playfab-web-login
+[license]: ./LICENSE
