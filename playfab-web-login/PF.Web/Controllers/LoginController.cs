@@ -56,7 +56,7 @@ namespace PF.Web.Controllers
                 new AuthenticationToken
                 {
                     Name = "PlayFab",
-                    Value = response.Result.EntityToken.EntityToken
+                    Value = response.Result.SessionTicket
                 }
             });
 

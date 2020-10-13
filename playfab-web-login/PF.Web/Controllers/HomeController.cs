@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PF.Web.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace PF.Web.Controllers
 {
@@ -14,8 +16,9 @@ namespace PF.Web.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var test = await HttpContext.GetTokenAsync("PlayFab");
             return View();
         }
 
